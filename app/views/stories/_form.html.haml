@@ -5,7 +5,7 @@
         %span{aria: {hidden: "true"} } &times;
         %span.sr-only Close
       %h4= "#{pluralize(@story.errors.count, "error")} prohibited this story from being saved:"
-
+      time=Time.now.getutc
       %ul
         - @story.errors.full_messages.each do |msg|
           %li= msg
@@ -18,10 +18,6 @@
     = f.label :link, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :link, class: 'form-control'
-  .form-group
-    = f.label :timestamp_of_post, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :timestamp_of_post, class: 'form-control'
   .form-group
     = f.label :authors_email, class: 'col-sm-2 control-label'
     .col-sm-10
