@@ -8,18 +8,22 @@
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
-        %th #
+        %th ID #
         %th Vote
         %th Title
         %th Link
-        %th Timestamp of post
+        %th Created_at
         %th Authors email
-        %th{colspan: 3}
+        %th{:colspan => 3} Options
 
     %tbody
 
       - @stories.each do |story|
         %tr
+          %td= story.id
+          %td
+            %span.glyphicon.glyphicon-arrow-up
+            %span.glyphicon.glyphicon-arrow-down
           %td= story.title
           %td= story.link
           %td= story.created_at

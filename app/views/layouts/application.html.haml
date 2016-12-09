@@ -20,18 +20,45 @@
     %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container
         .navbar-header
-          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "/", class: "navbar-brand" do
-            Ironnews
-        #navbar.collapse.navbar-collapse
+          %a.navbar-brand{:href => "/"} IronNews
+
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              = link_to "Stories", "/stories"
-              = link_to "New", "/new_story_path"
+              %a{:href => "/stories"} Stories
+            %li
+              %a{:href => "/stories/new"} New
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Topics
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} Happy
+                %li
+                  %a{:href => "#"} Happy Birthday
+                %li
+                  %a{:href => "#"} Happy Birthday To
+                %li.divider
+                %li
+                  %a{:href => "#"} Hamilton Clark
+                %li.divider
+                %li
+                  %a{:href => "#"} Happy Birthday to you
+          %form.navbar-form.navbar-left{:role => "search"}
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}
+            %button.btn.btn-default{:type => "submit"} Submit
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "/about_us"} About Us
+            %li.dropdown
+              %a{:href => "/login"} Log-In
 
 
     .container
